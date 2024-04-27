@@ -38,8 +38,8 @@ line-length = 120
 # Allow unused variables when underscore-prefixed.
 dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 
-# Assume Python 3.11.
-target-version = "py311"
+# Assume Python 3.12.
+target-version = "py312"
 
 [tool.ruff.mccabe]
 # Unlike Flake8, default to a complexity level of 10.
@@ -57,7 +57,7 @@ line_length = 120
 
 [tool.black]
 line-length = 120
-target-version = ['py311']
+target-version = ['py312']
 include = '\.pyi?$'
 exclude = '''
 /(
@@ -72,36 +72,3 @@ exclude = '''
 | \.pytest_cache
 )/
 '''
-
-[tool.pytest.ini_options]
-minversion = "6.0"
-addopts = "-vv --cov='.'"
-testpaths = ["tests"]
-
-[tool.coverage.run]
-omit = ["tests/*"]
-branch = true
-
-[tool.coverage.report]
-# Regexes for lines to exclude from consideration
-exclude_also = [
-    # Don't complain about missing debug-only code:
-    "def __repr__",
-    "if self\\.debug",
-
-    # Don't complain if tests don't hit defensive assertion code:
-    "raise AssertionError",
-    "raise NotImplementedError",
-
-    # Don't complain if non-runnable code isn't run:
-    "if 0:",
-    "if __name__ == .__main__.:",
-
-    # Don't complain about abstract methods, they aren't run:
-    "@(abc\\.)?abstractmethod",
-    ]
-
-ignore_errors = true
-
-[tool.coverage.html]
-directory = "coverage_html_report"
