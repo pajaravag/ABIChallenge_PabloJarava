@@ -4,3 +4,6 @@ gunicorn
 httpx
 requests
 pandas
+xgboost
+scikit-learn
+numpy
