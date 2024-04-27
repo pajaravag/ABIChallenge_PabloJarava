@@ -1,0 +1,5 @@
+fastapi==0.110.2
+uvicorn
+gunicorn
+httpx
+requests
