@@ -4,6 +4,7 @@ env:
   GCP_ZONE: us-east1
   PROJECT_ID: ${{ secrets.PROJECT_ID }}
   IMAGE_NAME: ${{ secrets.IMAGE_NAME }}
+
 permissions:
   pages: write
   contents: write
@@ -107,6 +108,6 @@ jobs:
       - name: Deploy Docker Image to Cloud Run
         uses: 'google-github-actions/deploy-cloudrun@v2'
         with:
-          service: ${{ env.IMAGE_NAME }}
+          service: 'abi-challenge'
           region: ${{ env.GCP_ZONE }}
           image: gcr.io/${{ env.PROJECT_ID }}/${{ env.IMAGE_NAME }}:latest
