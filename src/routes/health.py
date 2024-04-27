@@ -1,3 +1,5 @@
+import json
+
 from fastapi import APIRouter
 from fastapi.responses import JSONResponse
 
@@ -10,4 +12,4 @@ async def health() -> JSONResponse:
     Returns:
         JSONResponse: status ok
     """
-    return {"status": "ok"}
+    return JSONResponse(content=json.dumps({"status": "ok"}))

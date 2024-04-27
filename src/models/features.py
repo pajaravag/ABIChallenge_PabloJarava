@@ -3,35 +3,35 @@ from typing import List, Literal
 from pydantic import BaseModel
 
 
-class Pclass_(BaseModel):
+class Pclass(BaseModel):
     Pclass: float
 
 
-class Sex_(BaseModel):
+class Sex(BaseModel):
     Sex: Literal["male", "female"]
 
 
-class Age_(BaseModel):
+class Age(BaseModel):
     Age: float
 
 
-class SibSp_(BaseModel):
+class SibSp(BaseModel):
     SibSp: float
 
 
-class Parch_(BaseModel):
+class Parch(BaseModel):
     Parch: float
 
 
-class Fare_(BaseModel):
+class Fare(BaseModel):
     Fare: float
 
 
-class Embarked_(BaseModel):
+class Embarked(BaseModel):
     Embarked: Literal["S", "C", "Q"]
 
 
-class Features(Pclass_, Sex_, Age_, SibSp_, Parch_, Fare_, Embarked_):
+class Features(Pclass, Sex, Age, SibSp, Parch, Fare, Embarked):
     pass
 
 

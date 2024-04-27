@@ -1,3 +1,5 @@
+import json
+
 from fastapi import APIRouter
 from fastapi.responses import JSONResponse
 
@@ -10,4 +12,4 @@ def read_root() -> JSONResponse:
     Returns:
         JSONResponse: Hello World
     """
-    return {"Hello": "World"}
+    return JSONResponse(content=json.dumps({"Hello": "World"}))
