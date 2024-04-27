@@ -8,3 +8,4 @@ docformatter
 pytest
 pytest-cov
 pre-commit
+tox
