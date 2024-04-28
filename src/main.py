@@ -1,6 +1,8 @@
 import logging
+import os
 
 from fastapi import FastAPI
+from tortoise.contrib.fastapi import register_tortoise
 
 from src.routes import health, index, inference
 
@@ -12,7 +14,6 @@ def create_application() -> FastAPI:
     Returns:
         FastAPI: FastAPI application
     """
-
     app = FastAPI()
     app.include_router(index.router)
     app.include_router(inference.router)
@@ -22,6 +23,14 @@ def create_application() -> FastAPI:
 
 app = create_application()
 
+register_tortoise(
+    app,
+    db_url=os.environ.get("DATABASE_URL"),
+    modules={"models": ["src.models.database"]},
+    generate_schemas=False,
+    add_exception_handlers=True,
+)
+
 
 @app.on_event("startup")
 async def startup_event():
@@ -29,7 +38,6 @@ async def startup_event():
     log.info("Starting up...")
 
 
-@app.on_event("shutdown")
 async def shutdown_event():
     """Shutdown event."""
     log.info("Shutting down...")
