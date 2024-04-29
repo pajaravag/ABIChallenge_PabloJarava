@@ -1,0 +1,12 @@
+fastapi==0.110.2
+uvicorn
+gunicorn
+httpx
+requests
+pandas
+xgboost
+scikit-learn
+numpy
+tortoise-orm==0.20.0
+asyncpg==0.29.0
+aerich==0.7.2
